@@ -177,6 +177,28 @@
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
+
+		<!-- 添加配置将src目录下的资源打包进jar包中 -->
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+
+			<resource>
+				<directory>${basedir}/src/main/java</directory>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

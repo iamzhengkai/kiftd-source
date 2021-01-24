@@ -59,7 +59,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 
 	private ServerUIModule() throws Exception {
 		setUIFont();
-		(ServerUIModule.window = new JFrame("kiftd-服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
+		(ServerUIModule.window = new JFrame("服务器控制台")).setSize(OriginSize_Width, OriginSize_Height);
 		ServerUIModule.window.setLocation(100, 100);
 		ServerUIModule.window.setResizable(false);
 		try {
@@ -76,7 +76,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 				iconType = "/kohgylw/kiftd/ui/resource/icon_tray_w.png";
 			}
 			(ServerUIModule.trayIcon = new TrayIcon(ImageIO.read(this.getClass().getResourceAsStream(iconType))))
-					.setToolTip("青阳网络文件系统-kiftd");
+					.setToolTip("网络文件系统");
 			trayIcon.setImageAutoSize(true);
 			final PopupMenu pMenu = new PopupMenu();
 			final MenuItem exit = new MenuItem("退出(Exit)");
@@ -162,13 +162,13 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.setLayout(new BoxLayout(ServerUIModule.window.getContentPane(), 3));
 		final JPanel titlebox = new JPanel(new FlowLayout(1));
 		titlebox.setBorder(new EmptyBorder(0, 0, (int) (-25 * proportion), 0));
-		final JLabel title = new JLabel("kiftd");
+		final JLabel title = new JLabel("网络文件系统");
 		title.setFont(new Font("宋体", 1, (int) (30 * proportion)));
 		titlebox.add(title);
 		ServerUIModule.window.add(titlebox);
 		final JPanel subtitlebox = new JPanel(new FlowLayout(1));
 		subtitlebox.setBorder(new EmptyBorder(0, 0, (int) (-20 * proportion), 0));
-		final JLabel subtitle = new JLabel("青阳网络文件系统-服务器");
+		final JLabel subtitle = new JLabel("服务器");
 		subtitle.setFont(new Font("宋体", 0, (int) (13 * proportion)));
 		subtitlebox.add(subtitle);
 		ServerUIModule.window.add(subtitlebox);
@@ -247,7 +247,7 @@ public class ServerUIModule extends KiftdDynamicWindow {
 		ServerUIModule.window.add(outputBox);
 		final JPanel bottombox = new JPanel(new FlowLayout(1));
 		bottombox.setBorder(new EmptyBorder(0, 0, (int) (-30 * proportion), 0));
-		bottombox.add(new JLabel("--青阳龙野@kohgylw--"));
+		bottombox.add(new JLabel("--Powered by ZK--"));
 		ServerUIModule.window.add(bottombox);
 		ServerUIModule.start.setEnabled(false);
 		ServerUIModule.stop.setEnabled(false);
