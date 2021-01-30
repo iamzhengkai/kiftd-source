@@ -19,7 +19,7 @@ import kohgylw.kiftd.ui.callback.*;
  * 
  * <h2>UI界面模式启动器</h2>
  * <p>
- * 该启动器将以界面模式启动kiftd，请执行静态build()方法开启界面并初始化kiftd服务器引擎。
+ * 该启动器将以界面模式启动kiftd，请执行静态build()方法开启界面并初始化文件服务器引擎。
  * </p>
  * 
  * @author 青阳龙野(kohgylw)

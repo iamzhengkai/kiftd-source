@@ -474,7 +474,7 @@ function changeFilesTableStyle() {
 
 // 全局请求失败提示
 function doAlert() {
-	alert("错误：无法连接到kiftd服务器，请检查您的网络连接或查看服务器运行状态。");
+	alert("错误：无法连接到文件服务器，请检查您的网络连接或查看服务器运行状态。");
 }
 
 // 获取服务器操作系统

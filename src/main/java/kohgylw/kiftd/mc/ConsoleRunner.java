@@ -23,7 +23,7 @@ import kohgylw.kiftd.util.file_system_manager.pojo.FolderView;
  * 
  * <h2>命令模式启动器</h2>
  * <p>
- * 该启动器将以命令模式启动kiftd，请执行静态build()方法开启界面并初始化kiftd服务器引擎。
+ * 该启动器将以命令模式启动kiftd，请执行静态build()方法开启界面并初始化文件服务器引擎。
  * </p>
  * 
  * @author 青阳龙野(kohgylw)
@@ -97,7 +97,7 @@ public class ConsoleRunner {
 	}
 
 	private void startKiftdByConsole() {
-		Printer.instance.print(" 青阳网络文件系统-kiftd 控制台模式[Console model]");
+		Printer.instance.print(" 青阳网络文件系统 控制台模式[Console model]");
 		Printer.instance.print("Character encoding with UTF-8");
 		final Thread t = new Thread(() -> {
 			Printer.instance.print("正在初始化服务器...");
@@ -114,37 +114,37 @@ public class ConsoleRunner {
 		if (ConsoleRunner.ctl.started()) {
 			Printer.instance.print("错误：服务器已经启动了。您可以使用 -status 命令查看服务器运行状态或使用 -stop 命令停止服务器。");
 		} else if (ConsoleRunner.ctl.start()) {
-			Printer.instance.print("kiftd服务器已启动，可以正常访问了，您可以使用 -status 指令查看运行状态。");
+			Printer.instance.print("文件服务器已启动，可以正常访问了，您可以使用 -status 指令查看运行状态。");
 		} else {
 			if (ConfigureReader.instance().getPropertiesStatus() != 0) {
 				switch (ConfigureReader.instance().getPropertiesStatus()) {
 				case ConfigureReader.INVALID_PORT:
-					Printer.instance.print("错误：kiftd服务器未能启动，端口设置无效。");
+					Printer.instance.print("错误：文件服务器未能启动，端口设置无效。");
 					break;
 				case ConfigureReader.INVALID_BUFFER_SIZE:
-					Printer.instance.print("错误：kiftd服务器未能启动，缓存设置无效。");
+					Printer.instance.print("错误：文件服务器未能启动，缓存设置无效。");
 					break;
 				case ConfigureReader.INVALID_FILE_SYSTEM_PATH:
-					Printer.instance.print("错误：kiftd服务器未能启动，文件系统路径或某一扩展存储区设置无效。");
+					Printer.instance.print("错误：文件服务器未能启动，文件系统路径或某一扩展存储区设置无效。");
 					break;
 				case ConfigureReader.INVALID_LOG:
-					Printer.instance.print("错误：kiftd服务器未能启动，日志设置无效。");
+					Printer.instance.print("错误：文件服务器未能启动，日志设置无效。");
 					break;
 				case ConfigureReader.INVALID_VC:
-					Printer.instance.print("错误：kiftd服务器未能启动，登录验证码设置无效。");
+					Printer.instance.print("错误：文件服务器未能启动，登录验证码设置无效。");
 					break;
 				default:
-					Printer.instance.print("错误：kiftd服务器未能启动，请重试或检查设置。");
+					Printer.instance.print("错误：文件服务器未能启动，请重试或检查设置。");
 					break;
 				}
 			} else {
-				Printer.instance.print("错误：kiftd服务器未能启动，请重试或检查设置。");
+				Printer.instance.print("错误：文件服务器未能启动，请重试或检查设置。");
 			}
 		}
 	}
 
 	private void exit() {
-		Printer.instance.print("执行命令：停止服务器并退出kiftd...");
+		Printer.instance.print("执行命令：停止服务器并退出...");
 		if (ConsoleRunner.ctl.started() && ConsoleRunner.ctl.stop()) {
 			Printer.instance.print("服务器已关闭，停止所有访问。");
 		}
@@ -222,7 +222,7 @@ public class ConsoleRunner {
 					}
 				}
 			} catch (Exception e) {
-				Printer.instance.print("错误：读取命令时出现意外导致程序退出，请重启kiftd。");
+				Printer.instance.print("错误：读取命令时出现意外导致程序退出，请重启。");
 			}
 		});
 		t.start();
